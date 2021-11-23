@@ -1,4 +1,4 @@
-module github.com/kmikiy/go-apple-private-relay
+module github.com/kmikiy/go-icloud-private-relay
 
 go 1.17
 

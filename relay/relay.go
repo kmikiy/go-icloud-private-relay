@@ -4,8 +4,8 @@ import (
 	"net"
 )
 
-// IsApplePrivateRelayAddress checks if the ip address is in the list of apple private relay ip networks
-func IsApplePrivateRelayAddress(ipAddress string) bool {
+// IsICloudPrivateRelayAddress checks if the ip address is in the list of iCloud private relay ip networks
+func IsICloudPrivateRelayAddress(ipAddress string) bool {
 	if len(ipNets) == 0 {
 		a, _ := addresses()
 		ipNets, _ = mapAddresses(a)
@@ -20,8 +20,8 @@ func IsApplePrivateRelayAddress(ipAddress string) bool {
 	return false
 }
 
-// ApplePrivateRelay returns the csv row data from the egress ip ranges if the provided ip address is present
-func ApplePrivateRelay(ipAddress string) (egress, error) {
+// ICloudPrivateRelay returns the csv row data from the egress ip ranges if the provided ip address is present
+func ICloudPrivateRelay(ipAddress string) (egress, error) {
 	if len(ipNets) == 0 {
 		a, _ := addresses()
 		ipNets, _ = mapAddresses(a)

@@ -7,8 +7,8 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-func TestApplePrivateRelay(t *testing.T) {
-	act, err := ApplePrivateRelay("172.225.18.12")
+func TestICloudPrivateRelay(t *testing.T) {
+	act, err := ICloudPrivateRelay("172.225.18.12")
 	assert.NoError(t, err)
 
 	_, ipNet, _ := net.ParseCIDR("172.225.18.0/28")
@@ -21,7 +21,7 @@ func TestApplePrivateRelay(t *testing.T) {
 	assert.Equal(t, exp, act)
 }
 
-func TestIsApplePrivateRelayAddress(t *testing.T) {
+func TestIsICloudPrivateRelayAddress(t *testing.T) {
 	type args struct {
 		ipAddress string
 	}
@@ -31,7 +31,7 @@ func TestIsApplePrivateRelayAddress(t *testing.T) {
 		want bool
 	}{
 		{
-			name: "Apple private relay address",
+			name: "iCloud private relay address",
 			args: args{
 				ipAddress: "172.225.18.12",
 			},
@@ -47,8 +47,8 @@ func TestIsApplePrivateRelayAddress(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			if got := IsApplePrivateRelayAddress(tt.args.ipAddress); got != tt.want {
-				t.Errorf("IsApplePrivateRelayAddress() = %v, want %v", got, tt.want)
+			if got := IsICloudPrivateRelayAddress(tt.args.ipAddress); got != tt.want {
+				t.Errorf("IsICloudPrivateRelayAddress() = %v, want %v", got, tt.want)
 			}
 		})
 	}
