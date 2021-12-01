@@ -11,8 +11,8 @@ func IsICloudPrivateRelayAddress(ipAddress string) bool {
 		ipNets, _ = mapAddresses(a)
 	}
 
+	ip := net.ParseIP(ipAddress)
 	for _, egress := range ipNets {
-		ip := net.ParseIP(ipAddress)
 		if egress.IPNet.Contains(ip) {
 			return true
 		}
@@ -27,8 +27,8 @@ func ICloudPrivateRelay(ipAddress string) (egress, error) {
 		ipNets, _ = mapAddresses(a)
 	}
 
+	ip := net.ParseIP(ipAddress)
 	for _, egress := range ipNets {
-		ip := net.ParseIP(ipAddress)
 		if egress.IPNet.Contains(ip) {
 			return egress, nil
 		}
