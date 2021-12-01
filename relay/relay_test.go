@@ -1,7 +1,6 @@
 package relay
 
 import (
-	"net"
 	"testing"
 
 	"github.com/stretchr/testify/assert"
@@ -11,10 +10,7 @@ func TestICloudPrivateRelay(t *testing.T) {
 	act, err := ICloudPrivateRelay("172.225.18.12")
 	assert.NoError(t, err)
 
-	_, ipNet, _ := net.ParseCIDR("172.225.18.0/28")
-	exp := egress{
-		IPNet:       *ipNet,
-		CIDR:        ipNet.String(),
+	exp := location{
 		CountryCode: "MX",
 		State:       "MX-CHH",
 		City:        "Chihuahua"}
