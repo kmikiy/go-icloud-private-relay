@@ -10,7 +10,7 @@ func TestICloudPrivateRelay(t *testing.T) {
 	act, err := ICloudPrivateRelay("172.225.18.12")
 	assert.NoError(t, err)
 
-	exp := location{
+	exp := Location{
 		CountryCode: "MX",
 		State:       "MX-CHH",
 		City:        "Chihuahua"}

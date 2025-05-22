@@ -15,7 +15,7 @@ func IsICloudPrivateRelayAddress(ipAddress string) bool {
 }
 
 // ICloudPrivateRelay returns the csv row data from the egress ip ranges if the provided ip address is present
-func ICloudPrivateRelay(ipAddress string) (location, error) {
+func ICloudPrivateRelay(ipAddress string) (Location, error) {
 	if len(locations) == 0 || len(ipAddresses) == 0 {
 		a, _ := addresses()
 		ipAddresses, locations, _ = mapAddresses(a)
@@ -27,5 +27,5 @@ func ICloudPrivateRelay(ipAddress string) (location, error) {
 		}
 	}
 
-	return location{}, ErrNotFound
+	return Location{}, ErrNotFound
 }

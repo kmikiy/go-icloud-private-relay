@@ -7,24 +7,25 @@ import (
 	"net/http"
 )
 
-type location struct {
+// Location represents location data from Apple's CSV list.
+type Location struct {
 	CountryCode string
 	State       string
 	City        string
 }
 
-var locations = map[string]location{}
+var locations = map[string]Location{}
 var ipAddresses = map[string]string{}
 
-func mapAddresses(data [][]string) (ipAddresses map[string]string, locations map[string]location, err error) {
-	locations = map[string]location{}
+func mapAddresses(data [][]string) (ipAddresses map[string]string, locations map[string]Location, err error) {
+	locations = map[string]Location{}
 	ipAddresses = map[string]string{}
 	for _, row := range data {
 		if len(row) < 4 {
 			continue
 		}
 		cidr := row[0]
-		locations[cidr] = location{
+		locations[cidr] = Location{
 			CountryCode: row[1],
 			State:       row[2],
 			City:        row[3],
